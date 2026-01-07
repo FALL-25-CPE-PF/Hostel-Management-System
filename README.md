@@ -1,10 +1,10 @@
 # Hostel-Management-System
 <br>
-Represented by
+Represented by:
 <br>
-Muhammad Sameer
+  Muhammad Sameer
 <br>
-Syed Mustafa Gilani
+  Syed Mustafa Gilani
 <br>
-Roshan Ali
+  Roshan Ali
 <br>
