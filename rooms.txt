@@ -1,6 +1,6 @@
-A,1,Poor,5,1
+A,1,Poor,5,0
 A,2,Poor,5,0
-A,3,Good,3,1
+A,3,Good,3,0
 A,4,Good,3,0
 A,5,Poor,5,0
 A,6,Good,3,0
@@ -28,3 +28,4 @@ C,7,Poor,5,0
 C,8,Good,3,0
 C,9,Poor,5,0
 C,10,Good,3,0
+
