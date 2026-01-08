@@ -11,12 +11,10 @@ def load_students():
     except FileNotFoundError:
         pass
     return students
-
 def save_students(students):
     with open(STUDENT_FILE, "w") as f:
         for s in students:
             f.write(",".join(s) + "\n")
-
 def load_rooms():
     rooms = []
     try:
@@ -36,7 +34,6 @@ def load_rooms():
                     rooms.append([hostel, str(i), "Good", 3, 0])
         save_rooms(rooms)
     return rooms
-
 def save_rooms(rooms):
     with open(ROOMS_FILE, "w") as f:
         for r in rooms:
@@ -60,7 +57,7 @@ def deallocate_room(hostel, room_number):
                 r[4] -= 1
             break
     save_rooms(rooms)
-
+    
 # ---------- ADMIN FUNCTIONS ----------
 def add_student():
     student_id = input("Student ID: ")
@@ -75,9 +72,9 @@ def add_student():
         students = load_students()
         students.append([student_id, name, department, age, hostel, room_number, room_type])
         save_students(students)
-        print(f"✅ Student {name} added to Hostel {hostel}, Room {room_number}")
+        print(f"Student {name} added to Hostel {hostel}, Room {room_number}")
     else:
-        print("❌ No room available in that hostel/type")
+        print("No room available in that hostel/type")
 
 def remove_student():
     student_id = input("Enter Student ID to remove: ")
@@ -94,9 +91,9 @@ def remove_student():
 
     save_students(new_list)
     if removed:
-        print("✅ Student removed successfully")
+        print("Student removed successfully")
     else:
-        print("❌ Student ID not found")
+        print("Student ID not found")
 
 def update_student():
     student_id = input("Enter Student ID to update: ")
@@ -117,14 +114,14 @@ def update_student():
                 found = True
                 break
             else:
-                print("❌ No room available in that hostel/type")
+                print("No room available in that hostel/type")
                 return
 
     save_students(students)
     if found:
-        print("✅ Student details updated")
+        print("Student details updated")
     else:
-        print("❌ Student ID not found")
+        print("Student ID not found")
 
 def view_students():
     students = load_students()
@@ -158,19 +155,19 @@ def shift_student():
                 s[6] = new_type
                 found = True
             else:
-                print("❌ No room available in that hostel/type")
+                print("No room available in that hostel/type")
                 return
             break
 
     save_students(students)
     if found:
-        print("✅ Student shifted successfully")
+        print("Student shifted successfully")
     else:
-        print("❌ Student ID not found")
+        print("Student ID not found")
 
 # ---------- ADMIN MENU ----------
 def admin_menu():
-    print("✅ Entered Admin Module")
+    print("Entered Admin Module")
     while True:
         print("\n--- Admin Menu ---")
         print("1. Add Student")
@@ -180,9 +177,7 @@ def admin_menu():
         print("5. View Hostel Capacity")
         print("6. Shift Student")
         print("7. Logout")
-
         choice = input("Enter choice: ").strip()
-
         if choice == "1":
             add_student()
         elif choice == "2":
@@ -199,4 +194,4 @@ def admin_menu():
             print("Logging out of Admin...")
             break
         else:
-            print("❌ Invalid choice")
+            print("Invalid choice")
