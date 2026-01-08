@@ -87,4 +87,4 @@ def student_menu():
             print("Logging out of Student---")
             break
         else:
-            print(" Invalid choice")
+            print(" Invalid  choice")
