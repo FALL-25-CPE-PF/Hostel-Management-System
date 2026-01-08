@@ -1,6 +1,4 @@
 STUDENT_FILE = "students.txt"
-
-# ---------- STUDENT FUNCTIONS ----------
 def load_students():
     students = []
     try:
@@ -28,7 +26,7 @@ def apply_hostel():
     students = load_students()
     students.append([student_id, name, department, age, hostel, room_number, room_type])
     save_students(students)
-    print(f"✅ Student {name} added to Hostel {hostel}, Room {room_number}")
+    print(f" Student {name} added to Hostel {hostel}, Room {room_number}")
 
 def view_details():
     student_id = input("Enter your Student ID: ")
@@ -48,7 +46,7 @@ def view_details():
             found = True
             break
     if not found:
-        print("❌ No record found for this Student ID")
+        print(" No record found for this Student ID")
 
 def remove_self():
     student_id = input("Enter your Student ID to remove: ")
@@ -64,13 +62,12 @@ def remove_self():
 
     save_students(new_list)
     if removed:
-        print("✅ Removed from hostel successfully")
+        print(" Removed from hostel successfully")
     else:
-        print("❌ Student ID not found")
+        print(" Student ID not found")
 
-# ---------- STUDENT MENU ----------
 def student_menu():
-    print("✅ Entered Student Module")
+    print(" Entered Student Module")
     while True:
         print("\n--- Student Menu ---")
         print("1. Apply for Hostel")
@@ -90,4 +87,4 @@ def student_menu():
             print("Logging out of Student...")
             break
         else:
-            print("❌ Invalid choice")
+            print(" Invalid choice")
