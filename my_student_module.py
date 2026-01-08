@@ -35,7 +35,7 @@ def view_details():
 
     for s in students:
         if s[0] == student_id:
-            print("\n--- Your Details ---")
+            print("\n... Your Details ...")
             print(f"ID: {s[0]}")
             print(f"Name: {s[1]}")
             print(f"Department: {s[2]}")
@@ -84,7 +84,7 @@ def student_menu():
         elif choice == "3":
             remove_self()
         elif choice == "4":
-            print("Logging out of Student...")
+            print("Logging out of Student---")
             break
         else:
             print(" Invalid choice")
