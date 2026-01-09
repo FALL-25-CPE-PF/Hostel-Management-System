@@ -68,16 +68,16 @@ def add_student():
     department = input("Department: ")
     age = input("Age: ")
     hostel = input("Hostel (A/B/C): ").upper()
-    room_type = input("Room Type (Poor/Good): ").capitalize()
+    room_type = input("New Room Type \n(Poor Quality; 5 rooms without attach bathroom\nGood Quality; 3 rooms with attach bathroom): ").capitalize()
 
     room_number = allocate_room(hostel, room_type)
     if room_number:
         students = load_students()
         students.append([student_id, name, department, age, hostel, room_number, room_type])
         save_students(students)
-        print(f"✅ Student {name} added to Hostel {hostel}, Room {room_number}")
+        print(f"Student {name} added to Hostel {hostel}, Room {room_number}")
     else:
-        print("❌ No room available in that hostel/type")
+        print("No room available in that hostel/type")
 
 def remove_student():
     student_id = input("Enter Student ID to remove: ")
@@ -94,9 +94,9 @@ def remove_student():
 
     save_students(new_list)
     if removed:
-        print("✅ Student removed successfully")
+        print("Student removed successfully")
     else:
-        print("❌ Student ID not found")
+        print("Student ID not found")
 
 def update_student():
     student_id = input("Enter Student ID to update: ")
@@ -109,7 +109,7 @@ def update_student():
             s[2] = input("New Department: ")
             s[3] = input("New Age: ")
             s[4] = input("New Hostel (A/B/C): ").upper()
-            s[6] = input("New Room Type (Poor/Good): ").capitalize()
+            s[6] = input("New Room Type \n(Poor Quality; 5 rooms without attach bathroom\nGood Quality; 3 rooms with attach bathroom): ").capitalize()
             room_number = allocate_room(s[4], s[6])
             if room_number:
                 deallocate_room(s[4], s[5])
@@ -117,14 +117,14 @@ def update_student():
                 found = True
                 break
             else:
-                print("❌ No room available in that hostel/type")
+                print("No room available in that hostel/type")
                 return
 
     save_students(students)
     if found:
-        print("✅ Student details updated")
+        print("Student details updated")
     else:
-        print("❌ Student ID not found")
+        print("Student ID not found")
 
 def view_students():
     students = load_students()
@@ -150,7 +150,8 @@ def shift_student():
         if s[0] == student_id:
             deallocate_room(s[4], s[5])
             new_hostel = input("New Hostel (A/B/C): ").upper()
-            new_type = input("New Room Type (Poor/Good): ").capitalize()
+            new_type = input("New Room Type \n(Poor Quality; 5 rooms without attach bathroom\nGood Quality; 3 rooms with attach bathroom): ").capitalize()
+
             new_room = allocate_room(new_hostel, new_type)
             if new_room:
                 s[4] = new_hostel
@@ -158,19 +159,19 @@ def shift_student():
                 s[6] = new_type
                 found = True
             else:
-                print("❌ No room available in that hostel/type")
+                print("No room available in that hostel/type")
                 return
             break
 
     save_students(students)
     if found:
-        print("✅ Student shifted successfully")
+        print("Student shifted successfully")
     else:
-        print("❌ Student ID not found")
+        print("Student ID not found")
 
 # ---------- ADMIN MENU ----------
 def admin_menu():
-    print("✅ Entered Admin Module")
+    print("Entered Admin Module")
     while True:
         print("\n--- Admin Menu ---")
         print("1. Add Student")
@@ -199,4 +200,4 @@ def admin_menu():
             print("Logging out of Admin...")
             break
         else:
-            print("❌ Invalid choice")
+            print("Invalid choice")
