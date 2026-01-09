@@ -11,12 +11,10 @@ def load_students():
     except FileNotFoundError:
         pass
     return students
-
 def save_students(students):
     with open(STUDENT_FILE, "w") as f:
         for s in students:
             f.write(",".join(s) + "\n")
-
 def load_rooms():
     rooms = []
     try:
@@ -36,7 +34,6 @@ def load_rooms():
                     rooms.append([hostel, str(i), "Good", 3, 0])
         save_rooms(rooms)
     return rooms
-
 def save_rooms(rooms):
     with open(ROOMS_FILE, "w") as f:
         for r in rooms:
@@ -60,7 +57,7 @@ def deallocate_room(hostel, room_number):
                 r[4] -= 1
             break
     save_rooms(rooms)
-
+    
 # ---------- ADMIN FUNCTIONS ----------
 def add_student():
     student_id = input("Student ID: ")
@@ -181,9 +178,7 @@ def admin_menu():
         print("5. View Hostel Capacity")
         print("6. Shift Student")
         print("7. Logout")
-
         choice = input("Enter choice: ").strip()
-
         if choice == "1":
             add_student()
         elif choice == "2":
